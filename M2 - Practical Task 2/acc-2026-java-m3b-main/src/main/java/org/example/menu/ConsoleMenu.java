@@ -48,7 +48,11 @@ public class ConsoleMenu {
     }
 
     private void addItem(){
-        // TODO: check if order exists
+        // +TODO: check if order exists
+        if (currentOrder == null) {
+            System.out.println("No order exists. Create a order first.");
+            return;
+        }
 
         System.out.println("Item name:");
         String itemName = scanner.nextLine();
@@ -64,7 +68,11 @@ public class ConsoleMenu {
     }
 
     private void viewOrder(){
-        // TODO: check if order exists
+        // +TODO: check if order exists
+        if (currentOrder == null) {
+            System.out.println("No order exists. Create a order first.");
+            return;
+        }
 
         System.out.println("Customer: " + currentOrder.getCustomerName());
         System.out.println("Status: " +  currentOrder.getStatus());
@@ -78,7 +86,11 @@ public class ConsoleMenu {
     }
 
     private void payOrder(){
-        // TODO: check if order exists
+        // +TODO: check if order exists
+        if (currentOrder == null) {
+            System.out.println("No order exists. Create a order first.");
+            return;
+        }
 
         System.out.println("""
                 Select payment method:
@@ -111,12 +123,21 @@ public class ConsoleMenu {
 
     private  PaymentMethod createPaypalPayment(){
         // TODO
-        return null;
+        System.out.println("Email:");
+        String email =  scanner.nextLine();
+
+        return PaymentMethodFactory.createPaypalPayment(email);
     }
 
     private PaymentMethod createGiftCardPayment(){
         // TODO
-        return null;
+        System.out.println("Code:");
+        String code = scanner.nextLine();
+
+        System.out.println("Balance:");
+        double balance = Double.parseDouble(scanner.nextLine());
+
+        return PaymentMethodFactory.createGiftCardPayment(code, balance);
     }
 
     private void printMenu(){

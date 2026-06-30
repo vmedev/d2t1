@@ -15,7 +15,7 @@ public class GiftCardPayment extends PaymentMethod{
 
     @Override
     public PaymentResult processPayment(double amount){
-        if(balance > amount) {
+        if(balance >= amount) {
             balance -= amount;
             return new PaymentResult(true, "Paid " + amount + " using gift card");
         } else

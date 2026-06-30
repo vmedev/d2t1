@@ -6,4 +6,11 @@ public class PaymentMethodFactory {
     }
 
     // TODO: create factories for PayPal and gift card
+    public static PaymentMethod createPaypalPayment(String email){
+        return new PaypalPayment(email);
+    }
+
+    public static PaymentMethod createGiftCardPayment(String code, double balance){
+        return new GiftCardPayment(code, balance);
+    }
 }

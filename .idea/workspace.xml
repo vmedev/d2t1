@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7dfaa078-66bf-4371-b0de-ac8ce039f049" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M2 - Practical Task 2/acc-2026-java-m3b-main/src/main/java/org/example/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/M2 - Practical Task 2/acc-2026-java-m3b-main/src/main/java/org/example/config/AppConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/M2 - Practical Task 2/acc-2026-java-m3b-main/src/main/java/org/example/menu/ConsoleMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/M2 - Practical Task 2/acc-2026-java-m3b-main/src/main/java/org/example/menu/ConsoleMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M2 - Practical Task 2/acc-2026-java-m3b-main/src/main/java/org/example/model/FixedAmountDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/M2 - Practical Task 2/acc-2026-java-m3b-main/src/main/java/org/example/model/FixedAmountDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M2 - Practical Task 2/acc-2026-java-m3b-main/src/main/java/org/example/model/NoDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/M2 - Practical Task 2/acc-2026-java-m3b-main/src/main/java/org/example/model/NoDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M2 - Practical Task 2/acc-2026-java-m3b-main/src/main/java/org/example/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/M2 - Practical Task 2/acc-2026-java-m3b-main/src/main/java/org/example/model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M2 - Practical Task 2/acc-2026-java-m3b-main/src/main/java/org/example/payment/CreditCardPayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/M2 - Practical Task 2/acc-2026-java-m3b-main/src/main/java/org/example/payment/CreditCardPayment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/M2 - Practical Task 2/acc-2026-java-m3b-main/src/main/java/org/example/payment/GiftCardPayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/M2 - Practical Task 2/acc-2026-java-m3b-main/src/main/java/org/example/payment/GiftCardPayment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M2 - Practical Task 2/acc-2026-java-m3b-main/src/main/java/org/example/payment/PaymentMethodFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/M2 - Practical Task 2/acc-2026-java-m3b-main/src/main/java/org/example/payment/PaymentMethodFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M2 - Practical Task 2/acc-2026-java-m3b-main/src/main/java/org/example/payment/PaymentProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/M2 - Practical Task 2/acc-2026-java-m3b-main/src/main/java/org/example/payment/PaymentProcessor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +68,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1782821995224</updated>
-      <workItem from="1782822273735" duration="1488000" />
+      <workItem from="1782822273735" duration="3828000" />
     </task>
     <servers />
   </component>
