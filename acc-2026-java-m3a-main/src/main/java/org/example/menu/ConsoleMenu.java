@@ -62,10 +62,21 @@ public class ConsoleMenu {
                     break;
                 }
                 case 3:
+                    printAnimalType();
+                    System.out.println("Enter your choice (number)");
+                    choosed = scanner.nextInt();
 
+                    List<T> animals = shelter.findBySpecies(choosed);
+
+                    for (Animal animal : animals) {
+                        System.out.println(animal);
+                    }
                     break;
                 case 4:
-
+                    List<T> availableAnimals = shelter.findAvailableAnimals()
+                    for (Animal animal : availableAnimals) {
+                        System.out.println(animal);
+                    }
                     break;
                 case 5:
 

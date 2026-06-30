@@ -25,12 +25,18 @@ public class Shelter <T extends Animal>{
                 list.add(animal);
             }
         }
-        return null;
+        return list;
     }
 
     public List<T> findAvailableAnimals(){
         // TODO
-        return null;
+        List<T> availableAnimals = new ArrayList<>();
+        for(T animal : animals){
+            if (animal.getAdoptionStatus() == AVAILABLE){
+                availableAnimals.add(animal);
+            }
+        }
+        return availableAnimals;
     }
 
     public void markAsAdopted(String id){
