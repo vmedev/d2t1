@@ -4,6 +4,7 @@ import org.example.model.Animal;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.example.model.AdoptionStatus;
 
 public class Shelter <T extends Animal>{
     private final List<T> animals = new ArrayList<>();
@@ -29,10 +30,9 @@ public class Shelter <T extends Animal>{
     }
 
     public List<T> findAvailableAnimals(){
-        // TODO
         List<T> availableAnimals = new ArrayList<>();
         for(T animal : animals){
-            if (animal.getAdoptionStatus() == AVAILABLE){
+            if (animal.getAdoptionStatus() == AdoptionStatus.AVAILABLE){
                 availableAnimals.add(animal);
             }
         }
@@ -40,6 +40,12 @@ public class Shelter <T extends Animal>{
     }
 
     public void markAsAdopted(String id){
-        // TODO
+        for (T animal : animals) {
+            if (animal.getId().toString().equals(id)) {
+                animal.markAsAdopted();
+                return;
+            }
+        }
+        System.out.println("Animal with id " + id + " not found.");
     }
 }

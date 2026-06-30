@@ -1,27 +1,31 @@
 package org.example.menu;
 
 import org.example.model.Animal;
+import org.example.model.Dog;
+import org.example.model.Cat;
+import org.example.model.Bird;
+import org.example.model.AnimalId;
 import org.example.shelter.Shelter;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleMenu {
     private final Shelter<Animal> shelter;
-    private final Scanner scanner =  new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
+
     public ConsoleMenu(Shelter<Animal> shelter) {
         this.shelter = shelter;
     }
 
-    public void start(){
-        // TODO:
-        // Show menu in a loop
-        // Read user input
-        // Call correct 'Shelter' methods based on selected option
+    public void start() {
         int choosed = -1;
 
         while (choosed != 0) {
             printMenu();
             choosed = scanner.nextInt();
+            scanner.nextLine();
+
             switch (choosed) {
                 case 1: {
                     printAnimalType();
@@ -33,11 +37,10 @@ public class ConsoleMenu {
                     scanner.nextLine();
 
                     System.out.println("Animal name :");
-                    String name = scanner.next();
-                    scanner.nextLine();
+                    String name = scanner.nextLine();
 
-                    Animal animal;
-                    switch (type) {
+                    Animal animal = null;
+                    switch (species) {
                         case 1:
                             animal = new Dog(new AnimalId(), name, age);
                             break;
@@ -51,41 +54,45 @@ public class ConsoleMenu {
                             System.out.println("Unknown type");
                             break;
                     }
-                    shelter.addAnimal(animal);
+                    if (animal != null) {
+                        shelter.addAnimal(animal);
+                    }
                     break;
-            }
+                }
                 case 2: {
-                    List<T> animals = shelter.getAllAnimals();
+                    List<Animal> animals = shelter.getAllAnimals();
                     for (Animal animal : animals) {
                         System.out.println(animal);
                     }
                     break;
                 }
-                case 3:
-                    printAnimalType();
-                    System.out.println("Enter your choice (number)");
-                    choosed = scanner.nextInt();
-
-                    List<T> animals = shelter.findBySpecies(choosed);
-
+                case 3: {
+                    System.out.println("Enter species (Dog, Cat, Bird) :");
+                    String species = scanner.nextLine();
+                    List<Animal> animals = shelter.findBySpecies(species);
                     for (Animal animal : animals) {
                         System.out.println(animal);
                     }
                     break;
-                case 4:
-                    List<T> availableAnimals = shelter.findAvailableAnimals()
+                }
+                case 4: {
+                    List<Animal> availableAnimals = shelter.findAvailableAnimals();
                     for (Animal animal : availableAnimals) {
                         System.out.println(animal);
                     }
                     break;
-                case 5:
-
+                }
+                case 5: {
+                    System.out.println("Enter animal id :");
+                    String id = scanner.nextLine();
+                    shelter.markAsAdopted(id);
                     break;
+                }
             }
         }
     }
 
-    private void printMenu(){
+    private void printMenu() {
         System.out.println("""
                 1. Add animal
                 2. List all animals
@@ -96,11 +103,11 @@ public class ConsoleMenu {
                 """);
     }
 
-    private void printAnimalType(){
+    private void printAnimalType() {
         System.out.println("""
                 1. Dog
                 2. Cat
                 3. Bird
-        """)
+                """);
     }
 }
