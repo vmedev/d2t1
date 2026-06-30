@@ -8,15 +8,16 @@ import org.example.payment.PaymentMethod;
 import org.example.payment.PaymentMethodFactory;
 import org.example.payment.PaymentProcessor;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleMenu {
     private final Scanner scanner = new Scanner(System.in);
     private final PaymentProcessor paymentProcessor = new PaymentProcessor();
+    private final List<Order> ordersCompleted = new ArrayList<>();
 
     private Order currentOrder;
-    private List<Order> orderList;
 
     public void start(){
         AppConfig config = AppConfig.getInstance();
@@ -110,6 +111,11 @@ public class ConsoleMenu {
 
         PaymentResult result = paymentProcessor.process(currentOrder, paymentMethod);
         System.out.println(result.getMessage());
+
+        if(result.isSuccessful()){
+            ordersCompleted.add(currentOrder);
+            currentOrder = null;
+        }
     }
 
     private PaymentMethod createCreditCardPayment(){
