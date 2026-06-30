@@ -1,5 +1,7 @@
 package org.example.model;
 
+import org.example.config.AppConfig;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +18,6 @@ public class Order {
     }
 
     public void addItem(OrderItem item){
-        // TODO: prevent adding items if order is already paid
         if(status.equals(OrderStatus.NEW)) {
             items.add(item);
         } else {
@@ -25,16 +26,18 @@ public class Order {
     }
 
     public double calculateTotal(){
-        // TODO: calculate total from all order items (including discounts)
         double total = 0;
+        double taxRate = AppConfig.getInstance().getTaxRate();
         for(OrderItem item : items) {
             total += item.calculateTotal();
         }
-        return discount.apply(total);
+        double discounted = discount.apply(total);
+        double tax = discounted * taxRate;
+
+        return discounted + tax;
     }
 
     public void markAsPaid(){
-        // TODO: validate order is not empty
         if (items.isEmpty()) {
             throw new IllegalStateException("Cannot pay an empty order.");
         }
@@ -73,7 +76,6 @@ public class Order {
             return this;
         }
         public Order build(){
-            // TODO: validate customerName
             if (customerName == null || customerName.isBlank()) {
                 throw new IllegalArgumentException("Customer name is required.");
             }

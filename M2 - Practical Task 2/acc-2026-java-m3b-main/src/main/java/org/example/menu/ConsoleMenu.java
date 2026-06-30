@@ -8,6 +8,7 @@ import org.example.payment.PaymentMethod;
 import org.example.payment.PaymentMethodFactory;
 import org.example.payment.PaymentProcessor;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleMenu {
@@ -15,6 +16,7 @@ public class ConsoleMenu {
     private final PaymentProcessor paymentProcessor = new PaymentProcessor();
 
     private Order currentOrder;
+    private List<Order> orderList;
 
     public void start(){
         AppConfig config = AppConfig.getInstance();
@@ -48,7 +50,6 @@ public class ConsoleMenu {
     }
 
     private void addItem(){
-        // +TODO: check if order exists
         if (currentOrder == null) {
             System.out.println("No order exists. Create a order first.");
             return;
@@ -68,7 +69,6 @@ public class ConsoleMenu {
     }
 
     private void viewOrder(){
-        // +TODO: check if order exists
         if (currentOrder == null) {
             System.out.println("No order exists. Create a order first.");
             return;
@@ -86,7 +86,6 @@ public class ConsoleMenu {
     }
 
     private void payOrder(){
-        // +TODO: check if order exists
         if (currentOrder == null) {
             System.out.println("No order exists. Create a order first.");
             return;
@@ -97,6 +96,7 @@ public class ConsoleMenu {
                 1. Credit Card
                 2. PayPal
                 3. Gift Card
+                4. Crypto
                 """);
         int option = Integer.parseInt(scanner.nextLine());
 
@@ -104,6 +104,7 @@ public class ConsoleMenu {
             case 1 -> createCreditCardPayment();
             case 2 -> createPaypalPayment();
             case 3 -> createGiftCardPayment();
+            case 4 -> createCryptoPayment();
             default -> throw new IllegalArgumentException("Invalid payment method");
         };
 
@@ -122,7 +123,6 @@ public class ConsoleMenu {
     }
 
     private  PaymentMethod createPaypalPayment(){
-        // TODO
         System.out.println("Email:");
         String email =  scanner.nextLine();
 
@@ -130,7 +130,6 @@ public class ConsoleMenu {
     }
 
     private PaymentMethod createGiftCardPayment(){
-        // TODO
         System.out.println("Code:");
         String code = scanner.nextLine();
 
@@ -138,6 +137,13 @@ public class ConsoleMenu {
         double balance = Double.parseDouble(scanner.nextLine());
 
         return PaymentMethodFactory.createGiftCardPayment(code, balance);
+    }
+
+    private PaymentMethod createCryptoPayment(){
+        System.out.println("Wallet Address:");
+        String wallet = scanner.nextLine();
+
+        return PaymentMethodFactory.createCryptoPayment(wallet);
     }
 
     private void printMenu(){

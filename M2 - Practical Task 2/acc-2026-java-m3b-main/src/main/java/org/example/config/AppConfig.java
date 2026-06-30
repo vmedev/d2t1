@@ -15,7 +15,6 @@ public class AppConfig {
     }
 
     public static AppConfig getInstance(){
-        // TODO
         if(instance == null) {
             instance = new AppConfig();
         }
